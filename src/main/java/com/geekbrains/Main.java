@@ -7,6 +7,7 @@ import com.geekbrains.product.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     //1) Salesman, который может добавлять продукты
@@ -24,9 +25,10 @@ public class Main {
         market.addSalesman(secondSalesman);
 
         Customer customer = createFirstCustomer();
-        
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("У какого продавца ходите купить продукты (Имя Фамилия): ");
         // если продавец на рынке не найден, покупаем все необходимое у разных продавцов
-        if (!customer.findSalesmanOnMarket(market, "Виталий Еремин")) {
+        if (!customer.findSalesmanOnMarket(market, scanner.nextLine())) {
             customer.findProductOnMarket(market);
         }
         customer.whatIBoughtInfo();
